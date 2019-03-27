@@ -140,19 +140,49 @@ table {
 	box-sizing: border-box;
 }
 
+// rem font shenanigans
+
+html {
+	font-size: 62.5%; 
+}
+
+@bigGuyColor: #E8ECEF;
+
 html,
 body {
 	height: 100%;
+	
 }
-
 
 body {
 	background: white;
 }
 
+// variables and other
+
+p, td, li {
+	font-size: 2rem;
+}
+
+th, h2 {
+	font-size: 2.4rem;
+}
+
+h1, nav {
+	font-size: 2.6rem;
+
+}
+
+// layout starts here
+
 .container {
-	width: 1100px;
+	width: 1000px;
 	margin: 0 auto;
+
+	@media(max-width: 500px) {
+		width: 92%;
+		margin: 0 auto;
+	}
 }
 
 header {
@@ -161,19 +191,42 @@ header {
 	margin: 10px;
 
 	h1 {
-		width: 49.5%;
+		width: 48.5%;
 	}
 
 	nav {
 		display: flex;
 		justify-content: space-evenly;
-		width: 49.5%;
+		width: 48.5%;
 	}
+
+	@media(max-width: 500px) {
+		width: 100%;
+		flex-wrap: wrap;
+		nav {
+			padding-top: 5px;
+			flex-direction: column;
+			justify-content: space-evenly;
+			width: 60.5%;
+			a {
+				padding-bottom: 5px;
+			}
+		}
+		
+	}
+
+	
 }
 
 .big-head {
 	padding: 20px 1rem;
-	background: grey;
+	background: @bigGuyColor;
+	border-radius: 5px;
+	padding-bottom: 25px;
+
+	h1 {
+		font-size: 6rem;
+	}
 
 	img {
 		height: 400px;
@@ -181,25 +234,61 @@ header {
 
 	}
 
+	p {
+		padding-bottom: 10px;
+	}
+
 	.cta {
+		margin: 10px 0;
 		border-top: 1px dashed black;
-		padding-top: 5px;
+		padding-top: 15px;
+	}
+	button {
+		font-size: 2rem;
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+
+	@media(max-width: 500px) {
+		width: 100%;
 	}
 }
 
 .three-test {
 	display: flex;
 	flex-wrap: wrap;
-
+	margin-top: 20px;
 	.left {
+		h2 {
+			margin: 5px 0;
+		}
 		width: 49.5%;
 	}
 
 	.right {
+		h2 {
+			margin: 5px 0;
+		}
+		margin-left: .5%;
 		width: 49.5%;
+		ul {
+			li:nth-child(1) {
+				border-top: 2px solid black;
+			}
+			li {
+				padding: 5px;
+				border-left: 2px solid black;
+				border-right: 2px solid black;
+				border-bottom: 2px solid black;
+			}
+		}
 	}
 
 	.work-history {
+		margin-top: 20px;
+		h2 {
+			margin: 5px 0;
+		}
 		width: 100%;
 		table {
 			width: 100%;
@@ -217,6 +306,8 @@ header {
 }
 
 footer {
+	padding: 20px;
+	margin: 0 20px;
 	width: 100%;
 	display:flex;
 	justify-content: center;
