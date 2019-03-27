@@ -158,7 +158,44 @@ header nav {
   padding: 20px 1rem;
   background: grey;
 }
+.big-head img {
+  height: 400px;
+  width: 425px;
+}
 .big-head .cta {
   border-top: 1px dashed black;
   padding-top: 5px;
+}
+.three-test {
+  display: flex;
+  flex-wrap: wrap;
+}
+.three-test .left {
+  width: 49.5%;
+}
+.three-test .right {
+  width: 49.5%;
+}
+.three-test .work-history {
+  width: 100%;
+}
+.three-test .work-history table {
+  width: 100%;
+}
+.three-test .work-history table th {
+  background: darkseagreen;
+}
+.three-test .work-history table tr:nth-child(even) {
+  background: lightgoldenrodyellow;
+}
+.three-test .work-history table tr {
+  text-align: left;
+}
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+footer p {
+  margin-top: 5px;
 }
