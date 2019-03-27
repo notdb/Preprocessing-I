@@ -173,6 +173,10 @@ h1, nav {
 
 }
 
+.flexbox-mixin {
+	display:flex;
+}
+
 // layout starts here
 
 .container {
@@ -186,24 +190,26 @@ h1, nav {
 }
 
 header {
-	display: flex;
+	.flexbox-mixin;
 	width: 100%;
-	margin: 10px;
+	margin: 10px 0;
 
 	h1 {
-		width: 48.5%;
+		width: 50%;
 	}
 
 	nav {
-		display: flex;
+		.flexbox-mixin;
 		justify-content: space-evenly;
-		width: 48.5%;
+		width: 50%;
+		padding-left: 5%;
 	}
 
 	@media(max-width: 500px) {
 		width: 100%;
 		flex-wrap: wrap;
 		nav {
+			padding-left: 0%;
 			padding-top: 5px;
 			flex-direction: column;
 			justify-content: space-evenly;
@@ -247,6 +253,11 @@ header {
 		font-size: 2rem;
 		margin-top: 20px;
 		margin-bottom: 10px;
+		padding: 5px 7px;
+		border-radius: 5%;
+		a {
+			text-decoration: none;
+		}
 	}
 
 	@media(max-width: 500px) {
