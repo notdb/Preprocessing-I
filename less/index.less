@@ -187,6 +187,11 @@ h1, nav {
 		width: 92%;
 		margin: 0 auto;
 	}
+
+	@media(max-width: 800px) {
+		width: 92%;
+		margin: 0 auto;
+	}
 }
 
 header {
@@ -200,13 +205,15 @@ header {
 
 	nav {
 		.flexbox-mixin;
-		justify-content: space-evenly;
+		justify-content: flex-end;
 		width: 50%;
 		padding-left: 5%;
+		a {
+			padding: 0 5px;
+		}
 	}
 
 	@media(max-width: 500px) {
-		width: 100%;
 		flex-wrap: wrap;
 		nav {
 			padding-left: 0%;
@@ -258,10 +265,6 @@ header {
 		a {
 			text-decoration: none;
 		}
-	}
-
-	@media(max-width: 500px) {
-		width: 100%;
 	}
 }
 
