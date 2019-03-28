@@ -4,19 +4,87 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -24,25 +92,44 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -50,14 +137,196 @@ table {
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
+// rem font shenanigans
+
+html {
+	font-size: 62.5%; 
 }
 
+@bigGuyColor: #E8ECEF;
+
+html,
+body {
+	height: 100%;
+	
+}
 
 body {
-	background: red;
+	background: white;
+}
+
+// variables and other
+
+p, td, li {
+	font-size: 2rem;
+}
+
+th, h2 {
+	font-size: 2.4rem;
+}
+
+h1, nav {
+	font-size: 2.6rem;
+
+}
+
+.flexbox-mixin {
+	display:flex;
+}
+
+// layout starts here
+
+.container {
+	width: 1000px;
+	margin: 0 auto;
+
+	@media(max-width: 500px) {
+		width: 92%;
+		margin: 0 auto;
+	}
+
+	@media(max-width: 800px) {
+		width: 92%;
+		margin: 0 auto;
+	}
+}
+
+header {
+	.flexbox-mixin;
+	width: 100%;
+	margin: 10px 0;
+
+	h1 {
+		width: 50%;
+	}
+
+	nav {
+		.flexbox-mixin;
+		justify-content: flex-end;
+		width: 50%;
+		padding-left: 5%;
+		a {
+			padding: 0 5px;
+		}
+	}
+
+	@media(max-width: 500px) {
+		flex-wrap: wrap;
+		nav {
+			padding-left: 0%;
+			padding-top: 5px;
+			flex-direction: column;
+			justify-content: space-evenly;
+			width: 60.5%;
+			a {
+				padding-bottom: 5px;
+			}
+		}
+		
+	}
+
+	
+}
+
+.big-head {
+	padding: 20px 1rem;
+	background: @bigGuyColor;
+	border-radius: 5px;
+	padding-bottom: 25px;
+
+	h1 {
+		font-size: 6rem;
+	}
+
+	img {
+		height: 400px;
+		width: 425px;
+
+	}
+
+	p {
+		padding-bottom: 10px;
+	}
+
+	.cta {
+		margin: 10px 0;
+		border-top: 1px dashed black;
+		padding-top: 15px;
+	}
+	button {
+		font-size: 2rem;
+		margin-top: 20px;
+		margin-bottom: 10px;
+		padding: 5px 7px;
+		border-radius: 5%;
+		a {
+			text-decoration: none;
+		}
+	}
+}
+
+.three-test {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 20px;
+	.left {
+		h2 {
+			margin: 5px 0;
+		}
+		width: 49.5%;
+	}
+
+	.right {
+		h2 {
+			margin: 5px 0;
+		}
+		margin-left: .5%;
+		width: 49.5%;
+		ul {
+			li:nth-child(1) {
+				border-top: 2px solid black;
+			}
+			li {
+				padding: 5px;
+				border-left: 2px solid black;
+				border-right: 2px solid black;
+				border-bottom: 2px solid black;
+			}
+		}
+	}
+
+	.work-history {
+		margin-top: 20px;
+		h2 {
+			margin: 5px 0;
+		}
+		width: 100%;
+		table {
+			width: 100%;
+			th {
+				background: darkseagreen;
+			}
+			tr:nth-child(even) {
+				background: lightgoldenrodyellow;
+			}
+			tr {
+				text-align: left;
+			}
+		}
+	}
+}
+
+footer {
+	padding: 20px;
+	margin: 0 20px;
+	width: 100%;
+	display:flex;
+	justify-content: center;
+	p {
+		margin-top: 5px;
+	}
+
 }
